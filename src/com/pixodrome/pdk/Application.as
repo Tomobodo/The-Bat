@@ -1,13 +1,16 @@
 package com.pixodrome.pdk {
-	import flash.utils.getTimer;
+	import starling.core.Starling;
+
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import flash.utils.getTimer;
 	/**
 	 * @author Thomas
 	 */
 	public class Application extends Sprite{
 		
 		private var mCurrentTime : uint;
+		private var mStarling : Starling;
 
 		protected var mCurrentScene : Scene;
 		
@@ -17,6 +20,9 @@ package com.pixodrome.pdk {
 
 		private function onAddedToStage(event : Event) : void {
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+			
+			mStarling = new Starling(StarlingRender, stage);
+			mStarling.start();
 			
 			stage.addEventListener(Event.ENTER_FRAME, onEnterFrame);
 			
@@ -40,7 +46,6 @@ package com.pixodrome.pdk {
 			if(mCurrentScene)
 				mCurrentScene.destroy();
 			mCurrentScene = scene;
-			mCurrentScene.onCreate();
 		}
 		
 	}

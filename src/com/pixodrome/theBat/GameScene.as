@@ -4,5 +4,15 @@ package com.pixodrome.theBat {
 	 * @author Thomas
 	 */
 	public class GameScene extends Scene{
+		
+		function GameScene() : void {
+			
+			super();
+			
+			
+			
+				
+		}
+		
 	}
 }
