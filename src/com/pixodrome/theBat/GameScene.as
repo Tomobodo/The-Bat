@@ -1,7 +1,8 @@
 package com.pixodrome.theBat {
-	import com.pixodrome.pdk.component.Transform2D;
-	import com.pixodrome.pdk.entity.Entity;
+	import com.pixodrome.pdk.entity.Renderer;
 	import com.pixodrome.pdk.Scene;
+	import com.pixodrome.pdk.component.StarlingRenderer;
+	import com.pixodrome.pdk.entity.Entity;
 	/**
 	 * @author Thomas
 	 */
@@ -11,10 +12,11 @@ package com.pixodrome.theBat {
 			
 			super();
 			
-			var test : Entity = new Entity().add(new Transform2D());
+
+			var tost : Entity = new Entity().add(new DrawRect());
 			
-			add(test);			
-				
+			add(new Renderer().add(new StarlingRenderer()));
+			add(tost);			
 		}
 		
 	}

@@ -32,6 +32,10 @@ package com.pixodrome.pdk {
 			return mEntitys.getTag(tag);
 		}
 		
+		public function showTag():void{
+			mEntitys.showTag();
+		}
+		
 		public function remove(entity : Entity):void{
 			mEntitys.remove(entity);
 			entity.destroy();
