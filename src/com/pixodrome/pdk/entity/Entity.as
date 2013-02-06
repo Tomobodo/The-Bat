@@ -49,6 +49,14 @@ package com.pixodrome.pdk.entity {
 				comp.onUpdate(deltaTime);
 		}
 		
+		public function emit(message:String, params:Object, from:Component):void
+		{
+			var comp : Component = mComponents.getHead();
+			for(;comp;comp = comp.next)
+				if(comp != from)
+					comp.onMessage(message, params);
+		}
+		
 		public function toString() : String {
 			if(tag)
 				return tag;
