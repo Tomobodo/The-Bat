@@ -18,7 +18,8 @@ package com.pixodrome.pdk.component {
 		}
 
 		override public function onUpdate(deltaTime : Number) : void {
-			x++;	
+			x++;
+			rotation += 00.001;	
 		}
 
 	}
