@@ -1,4 +1,4 @@
-package com.pixodrome.pdk {
+package com.pixodrome.pdk.display {
 	import starling.display.Sprite;
 
 	/**

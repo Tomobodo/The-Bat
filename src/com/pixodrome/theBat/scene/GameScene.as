@@ -1,5 +1,5 @@
 package com.pixodrome.theBat.scene {
-	import com.pixodrome.pdk.Scene;
+	import com.pixodrome.pdk.application.Scene;
 	import com.pixodrome.pdk.component.Transform2D;
 	import com.pixodrome.pdk.entity.Entity;
 	import com.pixodrome.theBat.components.Rendering;

@@ -1,11 +1,11 @@
-package com.pixodrome.pdk {
+package com.pixodrome.pdk.application {
+	import starling.core.Starling;
 	import starling.events.Event;
 	import starling.textures.Texture;
 
+	import com.pixodrome.pdk.display.StarlingRender;
+
 	import flash.display.BitmapData;
-
-	import starling.core.Starling;
-
 	import flash.display.Sprite;
 	import flash.display.Stage;
 	import flash.events.Event;
