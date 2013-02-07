@@ -1,8 +1,8 @@
-package com.pixodrome.theBat.components {
+package com.pixodrome.pdk.component.display {
+	import starling.display.DisplayObject;
 	import starling.display.Sprite;
 
 	import com.pixodrome.pdk.component.Component;
-	import com.pixodrome.pdk.component.Transform2D;
 	import com.pixodrome.pdk.display.IRenderable;
 	import com.pixodrome.pdk.display.StarlingRender;
 	/**
@@ -12,6 +12,7 @@ package com.pixodrome.theBat.components {
 		
 		private var transform : Transform2D;
 		private var scene : Sprite;
+		private var mView : DisplayObject;
 		
 		public var view : IRenderable;
 		
@@ -20,7 +21,18 @@ package com.pixodrome.theBat.components {
 			transform = entity.getComponent(Transform2D) as Transform2D;
 			scene = StarlingRender.scene;
 			
-			scene.addChild(view.getView());
+			mView = view.getView();
+			
+			scene.addChild(mView);
+		}
+		
+		
+		override public function onUpdate(deltaTime : Number) : void {
+			mView.x = transform.x;
+			mView.y = transform.y;
+			mView.rotation = transform.rotation;
+			mView.scaleX = transform.scaleX;
+			mView.scaleY = transform.scaleY;
 		}
 		
 	}

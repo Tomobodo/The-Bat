@@ -1,8 +1,10 @@
 package com.pixodrome.theBat.scene {
+	import com.pixodrome.theBat.entitys.bat.Bat;
 	import com.pixodrome.pdk.application.Scene;
-	import com.pixodrome.pdk.component.Transform2D;
+	import com.pixodrome.pdk.component.display.Rendering;
+	import com.pixodrome.pdk.component.display.Transform2D;
 	import com.pixodrome.pdk.entity.Entity;
-	import com.pixodrome.theBat.components.Rendering;
+	import com.pixodrome.theBat.entitys.bat.BatView;
 	/**
 	 * @author Thomas
 	 */
@@ -12,9 +14,7 @@ package com.pixodrome.theBat.scene {
 			
 			super();
 			
-			var tost : Entity = new Entity().add(new Transform2D()).add(new Rendering());
-			
-			add(tost);			
+			add(new Bat());			
 		}
 		
 	}
