@@ -1,10 +1,11 @@
-package com.pixodrome.pdk.component.display {
+package com.pixodrome.pdk.component.display.d2	
+{
 	import starling.display.DisplayObject;
 	import starling.display.Sprite;
-
 	import com.pixodrome.pdk.component.Component;
 	import com.pixodrome.pdk.display.IRenderable;
 	import com.pixodrome.pdk.display.StarlingRender;
+	
 	/**
 	 * @author Thomas
 	 */
@@ -18,7 +19,7 @@ package com.pixodrome.pdk.component.display {
 		
 		override public function onCreate() : void {
 			
-			transform = entity.getComponent(Transform2D) as Transform2D;
+			transform = entity.getComponent(Transform2D);
 			scene = StarlingRender.scene;
 			
 			mView = view.getView();

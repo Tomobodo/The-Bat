@@ -39,7 +39,7 @@ package com.pixodrome.pdk.entity {
 			mComponents.removeByClass(compClass);
 		}
 		
-		public function getComponent(compClass:Class):Component{
+		public function getComponent(compClass:Class):*{
 			return mComponents.getComponent(compClass);
 		}
 		
