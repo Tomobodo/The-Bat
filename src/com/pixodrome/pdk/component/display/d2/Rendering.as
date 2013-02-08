@@ -14,6 +14,7 @@ package com.pixodrome.pdk.component.display.d2
 		private var transform : Transform2D;
 		private var scene : Sprite;
 		private var mView : DisplayObject;
+		private var mAdded : Boolean;
 		
 		public var view : IRenderable;
 		
@@ -23,12 +24,13 @@ package com.pixodrome.pdk.component.display.d2
 			scene = StarlingRender.scene;
 			
 			mView = view.getView();
-			
-			scene.addChild(mView);
 		}
 		
-		
 		override public function onUpdate(deltaTime : Number) : void {
+			if(!mAdded){
+				scene.addChild(mView);
+				mAdded = true;
+			}
 			mView.x = transform.x;
 			mView.y = transform.y;
 			mView.rotation = transform.rotation;

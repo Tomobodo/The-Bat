@@ -1,5 +1,4 @@
 package com.pixodrome.theBat.scene {
-	import com.pixodrome.theBat.entitys.Cam;
 	import com.pixodrome.pdk.application.Scene;
 	import com.pixodrome.theBat.entitys.bat.Bat;
 
@@ -13,7 +12,6 @@ package com.pixodrome.theBat.scene {
 			super();
 			
 			add(new Bat());	
-			add(new Cam());		
 		}
 		
 	}
