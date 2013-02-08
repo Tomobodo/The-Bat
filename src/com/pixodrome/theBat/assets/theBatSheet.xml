@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://texturepacker.com-->
-<!-- $TexturePacker:SmartUpdate:5780070a3675ff765829091343567d8b$ -->
+<!-- $TexturePacker:SmartUpdate:5a952d3133b744813a28d16f134ed6d3$ -->
 <TextureAtlas imagePath="theBatSheet.png">
-    <SubTexture name="Head_Scream" x="2" y="2" width="78" height="84"/>
-    <SubTexture name="Head_Smile" x="82" y="2" width="78" height="84"/>
-    <SubTexture name="batFly_1" x="162" y="2" width="250" height="150"/>
-    <SubTexture name="batFly_2" x="2" y="154" width="250" height="150"/>
-    <SubTexture name="batFly_3" x="254" y="154" width="250" height="150"/>
-    <SubTexture name="flyFly_1" x="2" y="306" width="80" height="90"/>
-    <SubTexture name="flyFly_2" x="84" y="306" width="80" height="90"/>
-    <SubTexture name="flyFly_3" x="166" y="306" width="80" height="90"/>
+    <SubTexture name="batFly_1" x="2" y="2" width="250" height="150"/>
+    <SubTexture name="batFly_2" x="254" y="2" width="250" height="150"/>
+    <SubTexture name="batFly_3" x="2" y="154" width="250" height="150"/>
+    <SubTexture name="flyEye_1" x="254" y="154" width="50" height="30"/>
+    <SubTexture name="flyEye_2" x="306" y="154" width="50" height="30"/>
+    <SubTexture name="flyEye_3" x="358" y="154" width="50" height="30"/>
+    <SubTexture name="flyFly_1" x="410" y="154" width="80" height="90"/>
+    <SubTexture name="flyFly_2" x="2" y="306" width="80" height="90"/>
+    <SubTexture name="flyFly_3" x="84" y="306" width="80" height="90"/>
+    <SubTexture name="head" x="166" y="306" width="78" height="84"/>
+    <SubTexture name="headScream" x="246" y="306" width="78" height="84"/>
 </TextureAtlas>
