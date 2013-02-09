@@ -1,20 +1,20 @@
 package com.pixodrome.theBat.components {
-	import com.pixodrome.pdk.component.display.d2.Transform2D;
 	import com.pixodrome.pdk.component.Component;
-
 	/**
 	 * @author Thomas
 	 */
-	public class GoFoward extends Component {
+	public class Gravity extends Component{
 		
-		private var mTransform : Transform2D;
+		public var gravity : Number = 3;
+		
+		private var mVelocity:Velocity;
 		
 		override public function onCreate() : void {
-			mTransform = entity.getComponent(Transform2D);		
+			mVelocity = entity.getComponent(Velocity);
 		}
 		
 		override public function onUpdate(deltaTime : Number) : void {
-			mTransform.x += 2;
+			mVelocity.velocityY += gravity;
 		}
 		
 	}

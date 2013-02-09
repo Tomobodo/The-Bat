@@ -1,4 +1,4 @@
-package com.pixodrome.pdk.application {
+package com.pixodrome.pdk.core {
 	import starling.core.Starling;
 	import starling.events.Event;
 	import starling.textures.Texture;

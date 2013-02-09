@@ -1,4 +1,4 @@
-package com.pixodrome.pdk.application {
+package com.pixodrome.pdk.core {
 	import com.pixodrome.pdk.IDestroyable;
 	import com.pixodrome.pdk.entity.Entity;
 	import com.pixodrome.pdk.entity.EntityList;
@@ -13,7 +13,7 @@ package com.pixodrome.pdk.application {
 			mEntitys = new EntityList();
 		}
 
-		public function update(deltaTime : uint) : void {
+		public function update(deltaTime : Number) : void {
 			var entity : Entity = mEntitys.getHead();
 			for(entity; entity; entity = entity.next)
 				entity.update(deltaTime);
