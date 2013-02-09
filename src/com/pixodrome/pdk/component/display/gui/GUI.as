@@ -1,30 +1,30 @@
-package com.pixodrome.pdk.component.display.d2 {
+package com.pixodrome.pdk.component.display.gui {
 	import starling.display.DisplayObject;
 	import starling.display.Sprite;
 
 	import com.pixodrome.pdk.component.Component;
+	import com.pixodrome.pdk.component.display.d2.Transform2D;
 	import com.pixodrome.pdk.display.IRenderable;
 	import com.pixodrome.pdk.display.StarlingRender;
 
 	/**
 	 * @author Thomas
 	 */
-	public class Rendering extends Component {
-		private var mScene : Sprite;
+	public class GUI extends Component {
+		private var mGui : Sprite;
 		private var mView : DisplayObject;
 		private var mTransform : Transform2D;
-		
 		public var view : IRenderable;
 
 		override public function onCreate() : void {
 			mTransform = entity.getComponent(Transform2D);
-			mScene = StarlingRender.scene;
+			mGui = StarlingRender.gui;
 
 			mView = view.getView();
-
+			
 			updateTransform();
 
-			mScene.addChild(mView);
+			mGui.addChild(mView);
 		}
 
 		override public function onUpdate(deltaTime : Number) : void {

@@ -4,12 +4,7 @@ package com.pixodrome.pdk.display {
 	 * @author Thomas
 	 */
 	public interface IRenderable {
-		
-		function setState(stateName : String):void;
-		
-		function play():void;
-		
-		function pause():void;
+		function onMessage(message:String, params:Object):void;
 		
 		function getView() : DisplayObject;
 	}

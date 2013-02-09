@@ -1,11 +1,10 @@
 package com.pixodrome.theBat.entitys.bat {
-	import com.pixodrome.theBat.components.Flying;
-	import com.pixodrome.theBat.components.Flying;
 	import com.pixodrome.pdk.component.basicPhysic.Gravity;
 	import com.pixodrome.pdk.component.basicPhysic.Velocity;
 	import com.pixodrome.pdk.component.display.d2.Rendering;
 	import com.pixodrome.pdk.component.display.d2.Transform2D;
 	import com.pixodrome.pdk.entity.Entity;
+	import com.pixodrome.theBat.components.Flying;
 
 	/**
 	 * @author Thomas
@@ -34,6 +33,10 @@ package com.pixodrome.theBat.entitys.bat {
 			var fly : Flying = new Flying();
 			fly.flyStrenght = 200;
 			add(fly);
+			
+			add(new Energie());
+			
+			add(new YControl());
 			
 			var rendering : Rendering = new Rendering();
 			rendering.view = new BatView();

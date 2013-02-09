@@ -14,7 +14,7 @@ package com.pixodrome.theBat.entitys.bat {
 		}
 
 		private function onMouseClicked() : void {
-			entity.emit("Fly", null, this);
+			emit("Fly", null);
 		}
 		
 	}

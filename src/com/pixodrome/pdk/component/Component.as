@@ -13,6 +13,10 @@ package com.pixodrome.pdk.component {
 		
 		function Component(){
 		}
+		
+		protected function emit(message:String, params : Object = null):void{
+			entity.internMessage(message, params, this);
+		}
 
 		public function onCreate() : void {
 		}

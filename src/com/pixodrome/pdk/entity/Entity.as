@@ -49,7 +49,7 @@ package com.pixodrome.pdk.entity {
 				comp.onUpdate(deltaTime);
 		}
 		
-		public function emit(message:String, params:Object, from:Component):void
+		public function internMessage(message:String, params:Object, from:Component):void
 		{
 			var comp : Component = mComponents.getHead();
 			for(;comp;comp = comp.next)

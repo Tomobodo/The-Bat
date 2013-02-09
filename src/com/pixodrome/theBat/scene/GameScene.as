@@ -1,5 +1,4 @@
 package com.pixodrome.theBat.scene {
-	import com.pixodrome.theBat.entitys.fly.Fly;
 	import starling.textures.Texture;
 
 	import com.pixodrome.pdk.component.constraint.XDistanceConstraint;

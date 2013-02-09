@@ -15,9 +15,15 @@ package com.pixodrome.pdk.component.constraint {
 		
 		override public function onCreate() : void {
 			mTransform = entity.getComponent(Transform2D);
+			updatePos();
 		}
 		
 		override public function onUpdate(deltaTime : Number) : void {
+			updatePos();
+
+		}
+
+		private function updatePos() : void {
 			mTransform.x = target.x + distance;
 		}
 		

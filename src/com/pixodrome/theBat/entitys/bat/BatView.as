@@ -18,7 +18,7 @@ package com.pixodrome.theBat.entitys.bat {
 		private var mHead : Image;
 		
 		function BatView(){
-			mAnimation = new MovieClip(Assets.getAtlas().getTextures("batFly_"), 12);
+			mAnimation = new MovieClip(Assets.getAtlas().getTextures("batFly_"), 25);
 			mAnimation.addFrame(Assets.getAtlas().getTexture("batFly_2"));
 			
 			mHead = new Image(Assets.getAtlas().getTexture("head"));
@@ -34,11 +34,16 @@ package com.pixodrome.theBat.entitys.bat {
 			mAnimation.pivotY = mAnimation.height/2;
 
 			mAnimation.addEventListener(Event.ENTER_FRAME, onEnterFrame);
+			mAnimation.addEventListener(Event.COMPLETE, onAnimComplete);
 			
 			mView = new Sprite();
 			
 			mView.addChild(mAnimation);
 			mView.addChild(mHead);
+		}
+
+		private function onAnimComplete(event : Event) : void {
+			mAnimation.stop();
 		}
 
 		private function onEnterFrame(event : Event) : void {
@@ -50,17 +55,17 @@ package com.pixodrome.theBat.entitys.bat {
 			mHead.x = 20;
 		}
 		
-		public function setState(stateName : String) : void {
-		}
-
-		public function play() : void {
-		}
-
-		public function pause() : void {
-		}
-
 		public function getView() : DisplayObject {
 			return mView;
+		}
+
+		public function onMessage(message : String, params : Object) : void {
+			if(message == "Fly"){
+				if(mAnimation.currentFrame == 0){
+					mAnimation.currentFrame = 1;
+					mAnimation.play();
+				}
+			}
 		}
 	}
 }
