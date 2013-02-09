@@ -1,4 +1,5 @@
 package com.pixodrome.pdk.core {
+	import com.pixodrome.pdk.input.Inputs;
 	import starling.core.Starling;
 	import starling.events.Event;
 	import starling.textures.Texture;
@@ -27,10 +28,12 @@ package com.pixodrome.pdk.core {
 
 		private function onAddedToStage(event : flash.events.Event) : void {
 			removeEventListener(flash.events.Event.ADDED_TO_STAGE, onAddedToStage);
+			
+			Inputs.init(stage);
 
 			mStarling = new Starling(StarlingRender, stage);
 			mStarling.start();
-
+			
 			mStarling.addEventListener(starling.events.Event.ROOT_CREATED, onRootCreated);
 
 			appStage = stage;

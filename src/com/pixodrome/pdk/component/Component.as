@@ -1,5 +1,5 @@
 package com.pixodrome.pdk.component {
-	import com.pixodrome.pdk.IDestroyable;
+	import com.pixodrome.pdk.core.IDestroyable;
 	import com.pixodrome.pdk.entity.Entity;
 	/**
 	 * @author Thomas

@@ -1,5 +1,4 @@
 package com.pixodrome.pdk.core {
-	import com.pixodrome.pdk.IDestroyable;
 	import com.pixodrome.pdk.entity.Entity;
 	import com.pixodrome.pdk.entity.EntityList;
 	/**

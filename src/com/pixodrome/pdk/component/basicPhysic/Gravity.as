@@ -1,4 +1,4 @@
-package com.pixodrome.theBat.components {
+package com.pixodrome.pdk.component.basicPhysic {
 	import com.pixodrome.pdk.component.Component;
 	/**
 	 * @author Thomas
