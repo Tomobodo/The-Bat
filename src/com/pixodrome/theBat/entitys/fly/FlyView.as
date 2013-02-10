@@ -1,4 +1,7 @@
 package com.pixodrome.theBat.entitys.fly {
+	import flash.events.TimerEvent;
+	import flash.utils.Timer;
+	import starling.display.Image;
 	import starling.core.Starling;
 	import starling.display.DisplayObject;
 	import starling.display.MovieClip;
@@ -16,9 +19,10 @@ package com.pixodrome.theBat.entitys.fly {
 	public class FlyView implements IRenderable {
 		
 		private var mAnimation : MovieClip;
-		private var mEyes : MovieClip;
+		private var mEyes : Image;
 		private var mEyesPositions : Array;
 		private var mView : Sprite;
+		private var mEyeTimer : Timer;
 		
 		function FlyView(){
 			
@@ -33,11 +37,13 @@ package com.pixodrome.theBat.entitys.fly {
 			mAnimation.pivotX = mAnimation.width/2;
 			mAnimation.pivotY = mAnimation.height/2;
 			
+			mEyeTimer = new Timer(1000);
+			mEyeTimer.addEventListener(TimerEvent.TIMER, onEyeTimer);
+			mEyeTimer.start();
+			
 			mView.addChild(mAnimation);
 			
-			mEyes = new MovieClip(Assets.getAtlas().getTextures("flyEye_"),1);
-			
-			Starling.juggler.add(mEyes);
+			mEyes = new Image(Assets.getAtlas().getTexture("flyEye_1"));
 			
 			mEyes.pivotX = mEyes.width / 2;
 			mEyes.pivotY = mEyes.height / 2;
@@ -48,6 +54,12 @@ package com.pixodrome.theBat.entitys.fly {
 			mEyes.y = mEyesPositions[0];
 			
 			mView.addChild(mEyes);
+		}
+
+		private function onEyeTimer(event : TimerEvent) : void {
+			var img : uint = Math.random() * 3 + 1;
+			mEyes.texture = Assets.getAtlas().getTexture("flyEye_" + img);
+			mEyeTimer.delay = Math.random() * 3000;
 		}
 		
 		private function onAnimComplete(event : Event) : void {

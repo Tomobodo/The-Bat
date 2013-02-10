@@ -1,4 +1,4 @@
-package com.pixodrome.theBat.entitys.EnergieBar {
+package com.pixodrome.theBat.entitys.energieBar {
 	import com.pixodrome.pdk.entity.Entity;
 	import com.pixodrome.pdk.component.display.d2.Transform2D;
 	import com.pixodrome.pdk.core.Scene;

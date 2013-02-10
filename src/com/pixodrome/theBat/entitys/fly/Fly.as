@@ -24,7 +24,7 @@ package com.pixodrome.theBat.entitys.fly {
 			
 			add(transform);
 			
-			add(new Velocity());
+			add( new Velocity());
 			
 			var friction : Friction = new Friction();
 			friction.frictionCoef = 0.98;
@@ -35,8 +35,8 @@ package com.pixodrome.theBat.entitys.fly {
 			add(new YControl());
 			
 			var flying : Flying = new Flying();
-			flying.flyVerticalStrenght = -25;
-			flying.flyHorizontalStrength = 3;
+			flying.flyVerticalStrenght = -100;
+			flying.flyHorizontalStrength = 25;
 			add(flying);
 
 			add(new FlyAI());
