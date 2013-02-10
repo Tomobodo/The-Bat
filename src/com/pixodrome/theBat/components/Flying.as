@@ -8,7 +8,8 @@ package com.pixodrome.theBat.components {
 		
 		private var mVelocity:Velocity;
 		
-		public var flyStrenght : Number = 50;
+		public var flyVerticalStrenght : Number = -50;
+		public var flyHorizontalStrength : Number = 0;
 		
 		public static const MESSAGE_FLY : String = "fly";
 		
@@ -18,7 +19,8 @@ package com.pixodrome.theBat.components {
 		
 		override public function onMessage(message : String, params : Object) : void {
 			if(message == MESSAGE_FLY){
-				mVelocity.velocityY -= flyStrenght;
+				mVelocity.velocityX += flyHorizontalStrength;
+				mVelocity.velocityY += flyVerticalStrenght;
 			}
 		}
 	}

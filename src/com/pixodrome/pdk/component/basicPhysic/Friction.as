@@ -3,18 +3,19 @@ package com.pixodrome.pdk.component.basicPhysic {
 	/**
 	 * @author Thomas
 	 */
-	public class Gravity extends Component{
+	public class Friction extends Component{
 		
-		public var gravity : Number = 9.81;
+		private var mVelocity : Velocity;
 		
-		private var mVelocity:Velocity;
+		public var frictionCoef : Number = 0.7;
 		
 		override public function onCreate() : void {
 			mVelocity = entity.getComponent(Velocity);
 		}
 		
 		override public function onUpdate(deltaTime : Number) : void {
-			mVelocity.velocityY += gravity;
+			mVelocity.velocityX *= frictionCoef;
+			mVelocity.velocityY *= frictionCoef;
 		}
 		
 	}

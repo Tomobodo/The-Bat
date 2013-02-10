@@ -26,14 +26,12 @@ package com.pixodrome.theBat.entitys.bat {
 			velocity.velocityX = 200;
 			add(velocity);
 			
-			var gravity : Gravity = new Gravity();
-			gravity.gravity = 9.81;
-			add(gravity);
+			add(new Gravity());
 			
 			add(new MouseControl());
 			
 			var fly : Flying = new Flying();
-			fly.flyStrenght = 200;
+			fly.flyVerticalStrenght = -200;
 			add(fly);
 			
 			add(new Energie());
