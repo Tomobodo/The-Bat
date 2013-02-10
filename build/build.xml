@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project name="The Bat">
-  <target name="Debug">
-    <fdt.loadProjectProperties projectname="The Bat" />
-    <fdt.launch.application projectname="${FDTProject}" mainclass="${FDTProjectPath}/src/com/pixodrome/theBat/TheBat.as" target="${FDTProjectPath}/bin/TheBat.swf" debug="true" startswf="true" swflauncher="Adobe Flash Player" swflocation="bin/TheBat.swf" />
-  </target>
+	<target name="Debug">
+		<fdt.loadProjectProperties projectname="The Bat" />
+		<fdt.launch.application projectname="${FDTProject}" mainclass="${FDTProjectPath}/src/com/pixodrome/theBat/TheBat.as" target="${FDTProjectPath}/bin/TheBat.swf" debug="true" startswf="true" swflauncher="Adobe Flash Player" swflocation="bin/TheBat.swf" />
+	</target>
+	<target name="Release">
+		<fdt.loadProjectProperties projectname="The Bat" />
+		<fdt.launch.application projectname="${FDTProject}" mainclass="${FDTProjectPath}/src/com/pixodrome/theBat/TheBat.as" target="${FDTProjectPath}/bin/TheBat.swf" debug="false" startswf="true" swflauncher="Adobe Flash Player" swflocation="bin/TheBat.swf" />
+	</target>
 </project>
 

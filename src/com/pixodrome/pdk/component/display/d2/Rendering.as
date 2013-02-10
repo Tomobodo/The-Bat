@@ -20,6 +20,7 @@ package com.pixodrome.pdk.component.display.d2 {
 			mTransform = entity.getComponent(Transform2D);
 			mScene = StarlingRender.scene;
 
+			view.setEntity(entity);
 			mView = view.getView();
 
 			updateTransform();
@@ -29,6 +30,7 @@ package com.pixodrome.pdk.component.display.d2 {
 
 		override public function onUpdate(deltaTime : Number) : void {
 			updateTransform();
+			view.onUpdate(deltaTime);
 		}
 
 		private function updateTransform() : void {

@@ -10,7 +10,9 @@ package com.pixodrome.theBat.entitys.fly {
 		public function Fly() {
 			super();
 			
-			add(new Transform2D());
+			var tran : Transform2D = new Transform2D();
+			tran.x = 1000;
+			add(tran);
 			
 			var rendering:Rendering = new Rendering();
 			rendering.view = new FlyView();

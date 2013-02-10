@@ -10,7 +10,7 @@ package com.pixodrome.pdk.component.display.gui {
 	/**
 	 * @author Thomas
 	 */
-	public class GUI extends Component {
+	public class Gui extends Component {
 		private var mGui : Sprite;
 		private var mView : DisplayObject;
 		private var mTransform : Transform2D;
@@ -20,6 +20,7 @@ package com.pixodrome.pdk.component.display.gui {
 			mTransform = entity.getComponent(Transform2D);
 			mGui = StarlingRender.gui;
 
+			view.setEntity(entity);
 			mView = view.getView();
 			
 			updateTransform();
@@ -29,6 +30,7 @@ package com.pixodrome.pdk.component.display.gui {
 
 		override public function onUpdate(deltaTime : Number) : void {
 			updateTransform();
+			view.onUpdate(deltaTime);
 		}
 
 		private function updateTransform() : void {

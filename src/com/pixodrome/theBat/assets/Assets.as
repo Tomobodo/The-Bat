@@ -8,10 +8,23 @@ package com.pixodrome.theBat.assets {
 	 * @author Thomas
 	 */
 	public class Assets {
-		[Embed(source="../../../../../media/graph/theBatSheet.png")]
-		public static const SpriteSheetTexture : Class;
-		[Embed(source="../../../../../media/graph/theBatSheet.xml", mimeType = "application/octet-stream")]
-		public static const SpriteSheetXML : Class;
+		
+		[Embed(source="../../../../../media/graph/spriteSheet.png")]
+		private static const SpriteSheetTexture : Class;
+		
+		[Embed(source="../../../../../media/graph/spriteSheet.xml", mimeType = "application/octet-stream")]
+		private static const SpriteSheetXML : Class;
+		
+		[Embed(source="../../../../../media/graph/environment/arrierePlan.png")]
+		private static const ArrierePlan : Class;
+		
+		public static const ArrierePlanTexture : Texture = Texture.fromBitmap(Bitmap(new ArrierePlan));
+		
+		[Embed(source="../../../../../media/graph/environment/secondPlan.png")]
+		private static const SecondPlan : Class;
+		
+		public static const SecondPlanTexture : Texture = Texture.fromBitmap(Bitmap(new SecondPlan));
+		
 		private static var textureAtlas : TextureAtlas;
 
 		public static function getAtlas() : TextureAtlas {

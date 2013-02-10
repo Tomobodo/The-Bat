@@ -7,18 +7,22 @@ package com.pixodrome.theBat.entitys.bat {
 	public class Energie extends Component {
 		
 		public var maxEnergie : uint = 100;
-		public var mEnergie : Number;
+		public var energie : Number;
+		
+		public static const MESSAGE_EAT:String = "eat";
+		public static const MESSAGE_HURT:String = "hurt";
+		public static const MESSAGE_DEAD:String = "dead";
 		
 		override public function onCreate() : void {
-			mEnergie = maxEnergie;
+			energie = maxEnergie;
 		}
 		
 		override public function onMessage(message : String, params : Object) : void {
 			switch(message){
-				case "eat" :
+				case MESSAGE_EAT :
 					add(Number(params));
 					break;
-				case "hurt" :
+				case MESSAGE_HURT :
 					remove(Number(params));
 					break;
 			}
@@ -29,19 +33,19 @@ package com.pixodrome.theBat.entitys.bat {
 			remove(deltaTime * 4);
 		}
 
-		private function remove(energie : Number) : void {
-			mEnergie -= energie;
-			if(mEnergie <= 0)
+		private function remove(_energie : Number) : void {
+			energie -= _energie;
+			if(energie <= 0)
 			{
-				mEnergie = 0;
-				emit("dead");
+				energie = 0;
+				emit(MESSAGE_DEAD);
 			}
 		}
 		
 		private function add(energie:Number):void{
-			mEnergie += energie;
-			if(mEnergie > maxEnergie)
-				mEnergie = maxEnergie;
+			energie += energie;
+			if(energie > maxEnergie)
+				energie = maxEnergie;
 		}
 
 	}

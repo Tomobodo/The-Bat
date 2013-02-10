@@ -29,11 +29,11 @@ package com.pixodrome.pdk.display {
 			this.textureWidth = this.image.width;
 			this.textureHeight = this.image.height;
 			
-			this.hRatio =  width / this.image.width;
-			this.vRatio = height / this.image.height;
-			
 			this.image.width = width;
 			this.image.height = height;
+			
+			hRatio = width / textureWidth;
+			vRatio = height / textureHeight;
 			
 			this.image.smoothing = TextureSmoothing.NONE;
 			
@@ -45,13 +45,16 @@ package com.pixodrome.pdk.display {
 			yy *= parralaxCoef;
 			xx *= parralaxCoef;
 			
-			yy = (yy/this.textureWidth % 1)+1;
-			xx = (xx/this.textureHeight % 1)+1;
+			xx %= this.textureWidth;
+			yy %= this.textureHeight;
+			
+			xx /= this.textureWidth;
+			yy /= this.textureWidth;
 			
 			this.image.setTexCoords(0, new Point(xx, yy));
-			this.image.setTexCoords(1, new Point(xx + this.hRatio, yy ));
-			this.image.setTexCoords(2, new Point(xx, yy + this.vRatio));
-			this.image.setTexCoords(3, new Point(xx + this.hRatio, yy + this.vRatio));
+			this.image.setTexCoords(1, new Point(xx + hRatio, yy ));
+			this.image.setTexCoords(2, new Point(xx, yy + vRatio));
+			this.image.setTexCoords(3, new Point(xx + hRatio, yy + vRatio));
  
 		}
 	}

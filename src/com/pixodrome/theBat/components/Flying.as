@@ -10,12 +10,14 @@ package com.pixodrome.theBat.components {
 		
 		public var flyStrenght : Number = 50;
 		
+		public static const MESSAGE_FLY : String = "fly";
+		
 		override public function onCreate() : void {
 			mVelocity = entity.getComponent(Velocity);
 		}
 		
 		override public function onMessage(message : String, params : Object) : void {
-			if(message == "Fly"){
+			if(message == MESSAGE_FLY){
 				mVelocity.velocityY -= flyStrenght;
 			}
 		}

@@ -1,4 +1,5 @@
 package com.pixodrome.theBat.entitys.fly {
+	import com.pixodrome.pdk.entity.Entity;
 	import starling.core.Starling;
 	import starling.display.DisplayObject;
 	import starling.display.MovieClip;
@@ -33,6 +34,15 @@ package com.pixodrome.theBat.entitys.fly {
 
 		public function getView() : DisplayObject {
 			return mView;
+		}
+
+		public function onMessage(message : String, params : Object) : void {
+		}
+
+		public function setEntity(entity : Entity) : void {
+		}
+
+		public function onUpdate(deltaTime : Number) : void {
 		}
 	}
 }

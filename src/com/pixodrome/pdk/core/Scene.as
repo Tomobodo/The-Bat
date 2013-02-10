@@ -8,7 +8,10 @@ package com.pixodrome.pdk.core {
 		
 		protected var mEntitys : EntityList;
 		
+		public static var current : Scene ;
+		
 		function Scene() {
+			current = this;
 			mEntitys = new EntityList();
 		}
 

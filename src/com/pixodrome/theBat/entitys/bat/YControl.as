@@ -25,14 +25,14 @@ package com.pixodrome.theBat.entitys.bat {
 				mTransform.y = minY;
 				if(mVelocity.velocityY < 0)
 					mVelocity.velocityY = 0;
-				emit("hurt", 3);
+				emit(Energie.MESSAGE_HURT, 3);
 			}
 			
 			if(mTransform.y > maxY){
 				mTransform.y = maxY;
 				if(mVelocity.velocityY > 0)
 					mVelocity.velocityY = 0;
-				emit("hurt", 3);
+				emit(Energie.MESSAGE_HURT, 3);
 			}
 			
 		}
