@@ -28,7 +28,6 @@ package com.pixodrome.theBat.entitys.bat {
 			}
 		}
 		
-		
 		override public function onUpdate(deltaTime : Number) : void {
 			remove(deltaTime * 4);
 		}

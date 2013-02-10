@@ -19,7 +19,7 @@ package com.pixodrome.theBat.entitys.EnergieBar {
 		private var mEntity : Entity;
 		
 		public function EnergieBarView() {
-			mBar = new Quad(800, 20);
+			mBar = new Quad(800, 20, 0xffff00);
 			mEnergie = Scene.current.getTag("Bat").getComponent(Energie);
 		}
 
@@ -31,12 +31,21 @@ package com.pixodrome.theBat.entitys.EnergieBar {
 		}
 
 		public function onUpdate(deltaTime : Number) : void {
-			mTransform.scaleX = mEnergie.energie / mEnergie.maxEnergie;
+			var percent : Number = mEnergie.energie / mEnergie.maxEnergie;
+			mTransform.scaleX = percent;
+			
+			var r:Number = 0xff << 16;
+			var v:Number = (0xff * percent) << 8;
+			var b:Number = 0x00;
+			
+			mBar.color = r | v | b;
 		}
 		
 		public function setEntity(entity : Entity) : void {
 			mEntity = entity;
 			mTransform = mEntity.getComponent(Transform2D);
+			
+			mTransform.y = 460;
 		}
 	}
 }

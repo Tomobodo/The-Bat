@@ -36,6 +36,5 @@ package com.pixodrome.theBat.entitys.bat {
 			}
 			
 		}
-
 	}
 }

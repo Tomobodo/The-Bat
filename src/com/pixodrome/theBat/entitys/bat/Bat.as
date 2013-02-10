@@ -15,6 +15,8 @@ package com.pixodrome.theBat.entitys.bat {
 			
 			tag = "Bat";
 			
+			add(new BatControl());
+			
 			var transform:Transform2D = new Transform2D();
 			transform.scaleX = 0.5;
 			transform.scaleY = 0.5;
