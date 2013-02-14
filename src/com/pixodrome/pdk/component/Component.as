@@ -15,7 +15,7 @@ package com.pixodrome.pdk.component {
 		}
 		
 		protected function emit(message:String, params : Object = null):void{
-			entity.internMessage(message, params, this);
+			entity.sendMessage(message, params, this);
 		}
 
 		public function onCreate() : void {

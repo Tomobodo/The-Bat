@@ -44,5 +44,10 @@ package com.pixodrome.pdk.component.display.d2 {
 		override public function onMessage(message : String, params : Object) : void {
 			view.onMessage(message, params);
 		}
+		
+		
+		override public function destroy() : void {
+			mScene.removeChild(mView);
+		}
 	}
 }

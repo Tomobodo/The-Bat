@@ -1,12 +1,17 @@
 package com.pixodrome.theBat.entitys.fly {
+	import starling.errors.AbstractClassError;
+
+	import com.pixodrome.pdk.component.Trigger.DistanceTrigger;
 	import com.pixodrome.pdk.component.basicPhysic.Friction;
-	import com.pixodrome.theBat.components.Flying;
-	import com.pixodrome.theBat.entitys.bat.YControl;
 	import com.pixodrome.pdk.component.basicPhysic.Gravity;
 	import com.pixodrome.pdk.component.basicPhysic.Velocity;
 	import com.pixodrome.pdk.component.display.d2.Rendering;
 	import com.pixodrome.pdk.component.display.d2.Transform2D;
+	import com.pixodrome.pdk.core.Scene;
 	import com.pixodrome.pdk.entity.Entity;
+	import com.pixodrome.theBat.components.Flying;
+	import com.pixodrome.theBat.entitys.bat.Eat;
+	import com.pixodrome.theBat.entitys.bat.YControl;
 
 	/**
 	 * @author Thomas
@@ -36,10 +41,15 @@ package com.pixodrome.theBat.entitys.fly {
 			
 			var flying : Flying = new Flying();
 			flying.flyVerticalStrenght = -100;
-			flying.flyHorizontalStrength = 25;
+			flying.flyHorizontalStrength = 10;
 			add(flying);
-
-			add(new FlyAI());
+			
+			var distanceTrigger : DistanceTrigger = new DistanceTrigger();
+			distanceTrigger.maxDistance = 500;
+			distanceTrigger.target = Scene.current.getTag("Camera").getComponent(Transform2D);
+			add(distanceTrigger);
+			
+			add(new FlyControl());
 			
 			var rendering:Rendering = new Rendering();
 			rendering.view = new FlyView();

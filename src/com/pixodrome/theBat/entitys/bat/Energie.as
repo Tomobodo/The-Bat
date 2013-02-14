@@ -9,8 +9,8 @@ package com.pixodrome.theBat.entitys.bat {
 		public var maxEnergie : uint = 100;
 		public var energie : Number;
 		
-		public static const MESSAGE_EAT:String = "eat";
 		public static const MESSAGE_HURT:String = "hurt";
+		public static const MESSAGE_HEAL:String = "heal"
 		public static const MESSAGE_DEAD:String = "dead";
 		
 		override public function onCreate() : void {
@@ -19,8 +19,9 @@ package com.pixodrome.theBat.entitys.bat {
 		
 		override public function onMessage(message : String, params : Object) : void {
 			switch(message){
-				case MESSAGE_EAT :
+				case MESSAGE_HEAL :
 					add(Number(params));
+					trace(Number(params));
 					break;
 				case MESSAGE_HURT :
 					remove(Number(params));
@@ -32,7 +33,7 @@ package com.pixodrome.theBat.entitys.bat {
 			remove(deltaTime * 4);
 		}
 
-		private function remove(_energie : Number) : void {
+		public function remove(_energie : Number) : void {
 			energie -= _energie;
 			if(energie <= 0)
 			{
@@ -41,8 +42,8 @@ package com.pixodrome.theBat.entitys.bat {
 			}
 		}
 		
-		private function add(energie:Number):void{
-			energie += energie;
+		public function add(_energie:Number):void{
+			energie += _energie;
 			if(energie > maxEnergie)
 				energie = maxEnergie;
 		}

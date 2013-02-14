@@ -1,8 +1,8 @@
 package com.pixodrome.theBat.entitys.spawner {
 	import com.pixodrome.pdk.component.EntitySpawner;
 	import com.pixodrome.pdk.component.constraint.XDistanceConstraint;
-	import com.pixodrome.pdk.core.Scene;
 	import com.pixodrome.pdk.component.display.d2.Transform2D;
+	import com.pixodrome.pdk.core.Scene;
 	import com.pixodrome.pdk.entity.Entity;
 
 	/**
@@ -20,10 +20,13 @@ package com.pixodrome.theBat.entitys.spawner {
 			
 			var constraint : XDistanceConstraint = new XDistanceConstraint();
 			constraint.target = camPos;
-			constraint.distance = 400;
+			constraint.distance = 450;
 			add(constraint);
 			
-			add(new EntitySpawner());
+			var entitySpawner : EntitySpawner = new EntitySpawner();
+			entitySpawner.minY = -180;
+			entitySpawner.maxY = 180;
+			add(entitySpawner);
 			
 			add(new FlySpawnerControl());
 		}

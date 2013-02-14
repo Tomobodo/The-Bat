@@ -1,4 +1,5 @@
 package com.pixodrome.pdk.entity {
+	import flash.trace.Trace;
 	import flash.utils.Dictionary;
 
 	/**
@@ -9,6 +10,7 @@ package com.pixodrome.pdk.entity {
 		private var mHead : Entity;
 		private var mQueue : Entity;
 		private var mTagDictionary : Dictionary;
+		private var mNbEntity : uint;
 
 		function EntityList() : void {
 			mHead = null;
@@ -45,6 +47,8 @@ package com.pixodrome.pdk.entity {
 		}
 
 		public function add(entity : Entity) : void {
+			++mNbEntity;
+			
 			var tag : String = entity.tag;
 			var previousTagged : Entity = mTagDictionary[tag];
 
@@ -72,11 +76,17 @@ package com.pixodrome.pdk.entity {
 				trace(a);
 		}
 		
+		public function getNbEntity():uint{
+			return mNbEntity;
+		}
+		
 		public function getTag(tag:String):Entity{
 			return mTagDictionary[tag];
 		}
 
 		public function remove(entity : Entity) : void {
+			--mNbEntity;
+			
 			var tag : String = entity.tag;
 
 			if (tag)

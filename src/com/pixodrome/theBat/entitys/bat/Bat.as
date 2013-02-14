@@ -23,22 +23,29 @@ package com.pixodrome.theBat.entitys.bat {
 			add(transform);
 			
 			var velocity : Velocity = new Velocity();
-			velocity.velocityX = 200;
+			velocity.velocityX = 150;
 			add(velocity);
 			
 			add(new Gravity());
 			
 			add(new MouseControl());
 			
-			var fly : Flying = new Flying();
-			fly.flyVerticalStrenght = -200;
-			add(fly);
+			var flying : Flying = new Flying();
+			flying.flyVerticalStrenght = -200;
+			add(flying);
+			
+			var eat : Eat = new Eat();
+			eat.offsetX = 10;
+			eat.offsetY = -17.5;
+			eat.radius = 30;
+			add(eat);
 			
 			add(new Energie());
 			
 			add(new YControl());
 			
 			var rendering : Rendering = new Rendering();
+			new BatView();
 			rendering.view = new BatView();
 			add(rendering);
 		}

@@ -11,6 +11,11 @@ package com.pixodrome.pdk.component {
 		
 		private var mTransform : Transform2D;
 		
+		public var minX : Number = 0;
+		public var minY : Number = 0;
+		public var maxX : Number = 0;
+		public var maxY : Number = 0;
+		
 		public static const MESSAGE_SPAWN : String = "spawn";
 		
 		override public function onCreate() : void {
@@ -22,8 +27,8 @@ package com.pixodrome.pdk.component {
 				var prefabClass : Class = params as Class;
 				var spawned : Entity = (new prefabClass) as Entity;
 				var spawnedTransform : Transform2D = spawned.getComponent(Transform2D);
-				spawnedTransform.x = mTransform.x;
-				spawnedTransform.y = mTransform.y;
+				spawnedTransform.x = mTransform.x + Math.random() * (maxX - minX) + minX;
+				spawnedTransform.y = mTransform.y + Math.random() * (maxY - minY) + minY;
 				Scene.current.add(spawned);
 			}
 		}

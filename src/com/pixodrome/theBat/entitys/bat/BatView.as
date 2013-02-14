@@ -1,5 +1,6 @@
 package com.pixodrome.theBat.entitys.bat {
-	import com.pixodrome.pdk.display.Color;
+	import starling.textures.Texture;
+	import flash.events.TimerEvent;
 	import starling.core.Starling;
 	import starling.display.DisplayObject;
 	import starling.display.Image;
@@ -8,31 +9,43 @@ package com.pixodrome.theBat.entitys.bat {
 	import starling.events.Event;
 
 	import com.greensock.TweenLite;
+	import com.pixodrome.pdk.display.Color;
 	import com.pixodrome.pdk.display.IRenderable;
 	import com.pixodrome.pdk.entity.Entity;
 	import com.pixodrome.theBat.assets.Assets;
 	import com.pixodrome.theBat.components.Flying;
 
+	import flash.utils.Timer;
+
 	/**
 	 * @author Thomas
 	 */
 	public class BatView implements IRenderable {
+		
 		private var mAnimation : MovieClip;
 		private var mView : Sprite;
 		private var mHead : Image;
+		
+		private var mTextureMouseOpen : Texture;
+		private var mTextureMouseClosed : Texture;
+		
+		private var mEatAnimationTimer : Timer;
 		
 		private var mColor : Color;
 		
 		function BatView() {
 			mAnimation = new MovieClip(Assets.getAtlas().getTextures("batFly_"), 25);
 			mAnimation.addFrame(Assets.getAtlas().getTexture("batFly_2"));
-
-			mHead = new Image(Assets.getAtlas().getTexture("head"));
+			
+			mTextureMouseClosed = Assets.getAtlas().getTexture("head");
+			mTextureMouseOpen = Assets.getAtlas().getTexture("headScream");			
+			
+			mHead = new Image(mTextureMouseClosed);
 			mHead.pivotX = mHead.width / 2;
 			mHead.pivotY = mHead.height / 2;
 
-			mHead.y = -35;
 			mHead.x = 20;
+			mHead.y = -35;
 
 			Starling.juggler.add(mAnimation);
 
@@ -40,6 +53,10 @@ package com.pixodrome.theBat.entitys.bat {
 			mAnimation.pivotY = mAnimation.height / 2;
 
 			mAnimation.addEventListener(Event.COMPLETE, onAnimComplete);
+			
+			mEatAnimationTimer = new Timer(100, 10);
+			mEatAnimationTimer.addEventListener(TimerEvent.TIMER, switchHead);
+			mEatAnimationTimer.addEventListener(TimerEvent.TIMER_COMPLETE, onMouseComplete);
 
 			mView = new Sprite();
 			
@@ -47,6 +64,17 @@ package com.pixodrome.theBat.entitys.bat {
 
 			mView.addChild(mAnimation);
 			mView.addChild(mHead);
+		}
+
+		private function onMouseComplete(event : TimerEvent) : void {
+			mHead.texture = mTextureMouseClosed;
+		}
+
+		private function switchHead(event : TimerEvent) : void {
+			if(mHead.texture == mTextureMouseClosed)
+				mHead.texture = mTextureMouseOpen;
+			else
+				mHead.texture = mTextureMouseClosed;
 		}
 
 		private function onAnimComplete(event : Event) : void {
@@ -77,7 +105,15 @@ package com.pixodrome.theBat.entitys.bat {
 				case Energie.MESSAGE_HURT:
 					onHurted();
 					break;
+				case Eat.MESSAGE_EAT:
+					onEat();
+					break;
 			}
+		}
+
+		private function onEat() : void {
+			mEatAnimationTimer.reset();
+			mEatAnimationTimer.start();
 		}
 
 		private function wingFlap() : void {

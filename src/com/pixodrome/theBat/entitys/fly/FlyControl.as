@@ -1,4 +1,9 @@
 package com.pixodrome.theBat.entitys.fly {
+	import com.pixodrome.pdk.component.basicPhysic.Friction;
+	import com.greensock.TweenLite;
+	import com.pixodrome.theBat.entitys.bat.Eat;
+	import com.pixodrome.pdk.core.Scene;
+	import com.pixodrome.pdk.component.Trigger.DistanceTrigger;
 	import com.pixodrome.pdk.component.basicPhysic.Velocity;
 	import com.pixodrome.pdk.component.Component;
 	import com.pixodrome.pdk.component.display.d2.Transform2D;
@@ -6,26 +11,27 @@ package com.pixodrome.theBat.entitys.fly {
 
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
+
 	/**
 	 * @author Thomas
 	 */
-	public class FlyAI extends Component{
-		
+	public class FlyControl extends Component {
 		private var mTransform : Transform2D;
 		private var mFlying : Flying;
 		private var mVelocity : Velocity;
 		private var mDirectionTimer : Timer;
 		private var mDirectionChanger : Number;
-		
+		private var mEaten : Boolean;
+
 		override public function onCreate() : void {
 			mTransform = entity.getComponent(Transform2D);
 			mFlying = entity.getComponent(Flying);
 			mVelocity = entity.getComponent(Velocity);
-			
+
 			mDirectionTimer = new Timer(Math.random() * 2500);
 			mDirectionTimer.addEventListener(TimerEvent.TIMER, onDirectionTimer);
 			mDirectionTimer.start();
-			
+
 			onDirectionTimer(null);
 		}
 
@@ -33,19 +39,37 @@ package com.pixodrome.theBat.entitys.fly {
 			mDirectionChanger = Math.random() * mFlying.flyVerticalStrenght * 2 - mFlying.flyVerticalStrenght;
 			mDirectionTimer.delay = Math.random() * 2500;
 		}
-		
-		private function flap():void{
+
+		private function flap() : void {
 			emit(Flying.MESSAGE_FLY);
 		}
-		
-		override public function onUpdate(deltaTime : Number) : void {
-			
-			if(mVelocity.velocityY + mDirectionChanger >= -mFlying.flyVerticalStrenght/2 && mTransform.y > -180)			
-				flap();
-			
-			if(mTransform.y > 180)
-				flap();
+
+		override public function onMessage(message : String, params : Object) : void {
+			switch(message) {
+				case DistanceTrigger.MESSAGE_DISTANCE_MAX:
+					Scene.current.remove(entity);
+					break;
+				case Eat.MESSAGE_EATEN:
+					if (!mEaten) {
+						var target : Transform2D = Transform2D(params);
+						entity.remove(Friction);
+						TweenLite.to(mTransform, 0.2, {scaleX:0.1, scaleY:0.1, x:target.x, y:target.y, onComplete:this.onEaten});
+						mEaten = true;
+					}
+					break;
+			}
 		}
 		
+		private function onEaten():void{
+			Scene.current.remove(entity);
+		}
+
+		override public function onUpdate(deltaTime : Number) : void {
+			if (mVelocity.velocityY + mDirectionChanger >= -mFlying.flyVerticalStrenght / 2 && mTransform.y > -180)
+				flap();
+
+			if (mTransform.y > 180)
+				flap();
+		}
 	}
 }
