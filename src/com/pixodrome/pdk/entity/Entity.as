@@ -10,6 +10,7 @@ package com.pixodrome.pdk.entity {
 		
 		protected var mDeltaTime : Number;
 		protected var mComponents : ComponentList;
+		protected var mAdded : Boolean;
 		
 		public var scene : Scene;
 		public var tag : String;
@@ -25,12 +26,15 @@ package com.pixodrome.pdk.entity {
 			var comp : Component = mComponents.getHead();
 			for(;comp;comp = comp.next)
 				comp.onCreate();
+			mAdded = true;
 		}
 		
 		public function add(component:Component):Entity{
 			component.entity = this;
 			
-			mComponents.add(component);			
+			mComponents.add(component);	
+			if(mAdded)
+				component.onCreate();	
 			
 			return this;
 		}

@@ -1,4 +1,6 @@
 package com.pixodrome.theBat.entitys.fly {
+	import com.pixodrome.pdk.component.GoToPoint;
+	import com.pixodrome.pdk.component.basicPhysic.Gravity;
 	import com.pixodrome.pdk.component.basicPhysic.Friction;
 	import com.greensock.TweenLite;
 	import com.pixodrome.theBat.entitys.bat.Eat;
@@ -22,6 +24,8 @@ package com.pixodrome.theBat.entitys.fly {
 		private var mDirectionTimer : Timer;
 		private var mDirectionChanger : Number;
 		private var mEaten : Boolean;
+		
+		public var dead : Boolean;
 
 		override public function onCreate() : void {
 			mTransform = entity.getComponent(Transform2D);
@@ -52,9 +56,17 @@ package com.pixodrome.theBat.entitys.fly {
 				case Eat.MESSAGE_EATEN:
 					if (!mEaten) {
 						var target : Transform2D = Transform2D(params);
-						entity.remove(Friction);
-						TweenLite.to(mTransform, 0.2, {scaleX:0.1, scaleY:0.1, x:target.x, y:target.y, onComplete:this.onEaten});
+						TweenLite.to(mTransform, 0.3, {scaleX:0.1, scaleY:0.1, onComplete:this.onEaten});
+						dead = true;
 						mEaten = true;
+						entity.remove(Friction);
+						entity.remove(Flying);
+						entity.remove(Gravity);
+						entity.remove(Velocity);
+						var goto : GoToPoint = new GoToPoint();
+						goto.point = target;
+						goto.speed = 3;
+						entity.add(goto);
 					}
 					break;
 			}

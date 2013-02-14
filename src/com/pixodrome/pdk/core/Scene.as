@@ -23,7 +23,7 @@ package com.pixodrome.pdk.core {
 			for(entity; entity; entity = entity.next)
 				entity.update(deltaTime);
 				
-			while(mEntitysToDestroy[0]){
+			while(mEntitysToDestroy.length > 0){
 				var entity : Entity = mEntitysToDestroy.pop();
 				mEntitys.remove(entity);
 				entity.destroy();

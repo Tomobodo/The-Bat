@@ -36,8 +36,9 @@ package com.pixodrome.theBat.entitys.bat {
 			
 			var eat : Eat = new Eat();
 			eat.offsetX = 10;
-			eat.offsetY = -17.5;
+			eat.offsetY = -5;
 			eat.radius = 30;
+			eat.radiusOpen = 80;
 			add(eat);
 			
 			add(new Energie());

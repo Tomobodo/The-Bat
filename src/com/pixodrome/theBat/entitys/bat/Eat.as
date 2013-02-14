@@ -1,11 +1,11 @@
 package com.pixodrome.theBat.entitys.bat {
-	import com.greensock.plugins.EndArrayPlugin;
-	import com.pixodrome.pdk.component.basicPhysic.Velocity;
-	import com.pixodrome.pdk.entity.Entity;
+	import com.pixodrome.theBat.entitys.fly.FlyControl;
 	import com.pixodrome.pdk.Utils;
 	import com.pixodrome.pdk.component.Component;
+	import com.pixodrome.pdk.component.basicPhysic.Velocity;
 	import com.pixodrome.pdk.component.display.d2.Transform2D;
 	import com.pixodrome.pdk.core.Scene;
+	import com.pixodrome.pdk.entity.Entity;
 
 	/**
 	 * @author Thomas
@@ -16,11 +16,14 @@ package com.pixodrome.theBat.entitys.bat {
 		private var mVelocity : Velocity;
 		
 		public var radius : Number = 20;
+		public var radiusOpen : Number = 50;
 		public var offsetX : Number = 0;
 		public var offsetY : Number = 0;
 		
 		public static const MESSAGE_EATEN : String = "eaten";
 		public static const MESSAGE_EAT:String = "eat";
+		public static const MESSAGE_OPEN_MOUTH : String = "MESSAGE_OPEN_MOUTH";
+		public static const MESSAGE_CLOSE_MOUTH : String = "MESSAGE_CLOSE_MOUTH";
 
 		override public function onCreate() : void {
 			mTransform = entity.getComponent(Transform2D);
@@ -35,15 +38,27 @@ package com.pixodrome.theBat.entitys.bat {
 			var flys : Entity = Scene.current.getEntitys();
 
 			while (flys) {
+				var aFlysIsClose : Boolean;
 				if (flys.tag == "Fly") {
 					var flyTransform : Transform2D = flys.getComponent(Transform2D);
+					var flyControl : FlyControl = flys.getComponent(FlyControl);
+					
+					var dist : Number = Utils.distance2D(flyTransform, mEatTransform);
 
-					if (Utils.distance2D(flyTransform, mEatTransform) < radius) {
+					if (dist < radius && !flyControl.dead) {
 						emit(Eat.MESSAGE_EAT);
 						emit(Energie.MESSAGE_HEAL, 20);
 						flys.sendMessage(Eat.MESSAGE_EATEN, mEatTransform, this);
+					}else if(dist < radiusOpen){
+						aFlysIsClose = true;
+						flys.sendMessage(Eat.MESSAGE_OPEN_MOUTH, null, this);
 					}
 				}
+				
+				if(aFlysIsClose)
+					emit(Eat.MESSAGE_OPEN_MOUTH);
+				else
+					emit(Eat.MESSAGE_CLOSE_MOUTH);
 
 				flys = flys.next;
 			}

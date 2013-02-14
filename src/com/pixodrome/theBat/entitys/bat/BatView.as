@@ -53,10 +53,6 @@ package com.pixodrome.theBat.entitys.bat {
 			mAnimation.pivotY = mAnimation.height / 2;
 
 			mAnimation.addEventListener(Event.COMPLETE, onAnimComplete);
-			
-			mEatAnimationTimer = new Timer(100, 10);
-			mEatAnimationTimer.addEventListener(TimerEvent.TIMER, switchHead);
-			mEatAnimationTimer.addEventListener(TimerEvent.TIMER_COMPLETE, onMouseComplete);
 
 			mView = new Sprite();
 			
@@ -64,17 +60,6 @@ package com.pixodrome.theBat.entitys.bat {
 
 			mView.addChild(mAnimation);
 			mView.addChild(mHead);
-		}
-
-		private function onMouseComplete(event : TimerEvent) : void {
-			mHead.texture = mTextureMouseClosed;
-		}
-
-		private function switchHead(event : TimerEvent) : void {
-			if(mHead.texture == mTextureMouseClosed)
-				mHead.texture = mTextureMouseOpen;
-			else
-				mHead.texture = mTextureMouseClosed;
 		}
 
 		private function onAnimComplete(event : Event) : void {
@@ -105,15 +90,21 @@ package com.pixodrome.theBat.entitys.bat {
 				case Energie.MESSAGE_HURT:
 					onHurted();
 					break;
-				case Eat.MESSAGE_EAT:
-					onEat();
+				case Eat.MESSAGE_OPEN_MOUTH:
+					openMouth();
+					break;
+				case Eat.MESSAGE_CLOSE_MOUTH:
+					closeMouth();
 					break;
 			}
 		}
+		
+		private function closeMouth():void{
+			mHead.texture = mTextureMouseClosed;
+		}
 
-		private function onEat() : void {
-			mEatAnimationTimer.reset();
-			mEatAnimationTimer.start();
+		private function openMouth() : void {
+			mHead.texture = mTextureMouseOpen;
 		}
 
 		private function wingFlap() : void {
