@@ -1,14 +1,14 @@
-package com.pixodrome.theBat.scene {
+package com.pixodrome.theBat.scenes {
+	import com.pixodrome.theBat.entitys.stalagmytes.StalagmyteSpawner;
 	import starling.display.Quad;
-	import com.pixodrome.pdk.display.StarlingRender;
-
 	import starling.display.Sprite;
 
 	import com.pixodrome.pdk.core.Scene;
+	import com.pixodrome.pdk.display.StarlingRender;
 	import com.pixodrome.theBat.entitys.Cam;
 	import com.pixodrome.theBat.entitys.bat.Bat;
 	import com.pixodrome.theBat.entitys.energieBar.EnergieBar;
-	import com.pixodrome.theBat.entitys.spawner.FlySpawner;
+	import com.pixodrome.theBat.entitys.flys.FlySpawner;
 
 	/**
 	 * @author Thomas
@@ -32,6 +32,8 @@ package com.pixodrome.theBat.scene {
 			add(new Cam());
 
 			add(new FlySpawner());
+			
+			add(new StalagmyteSpawner());
 		}
 	}
 }

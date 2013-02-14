@@ -1,7 +1,6 @@
-package com.pixodrome.theBat.entitys.spawner {
+package com.pixodrome.theBat.entitys.flys {
 	import com.pixodrome.pdk.component.Component;
 	import com.pixodrome.pdk.component.EntitySpawner;
-	import com.pixodrome.theBat.entitys.fly.Fly;
 
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;

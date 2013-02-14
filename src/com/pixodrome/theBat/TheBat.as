@@ -1,9 +1,10 @@
 package com.pixodrome.theBat {
-	import flash.events.MouseEvent;
 	import starling.core.Starling;
 
 	import com.pixodrome.pdk.core.Application;
-	import com.pixodrome.theBat.scene.GameScene;
+	import com.pixodrome.theBat.scenes.GameScene;
+
+	import flash.events.MouseEvent;
 
 	[SWF(backgroundColor="#000000", frameRate="61", width="800", height="480")]
 	public class TheBat extends Application {

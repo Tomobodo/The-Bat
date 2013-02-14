@@ -11,6 +11,8 @@ package com.pixodrome.theBat.entitys.bat {
 				case Energie.MESSAGE_DEAD : 
 					entity.remove(YControl);
 					entity.remove(Flying);
+					entity.remove(Eat);
+					break;
 			}
 		}
 		

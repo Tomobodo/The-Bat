@@ -1,4 +1,4 @@
-package com.pixodrome.theBat.entitys.spawner {
+package com.pixodrome.theBat.entitys.flys {
 	import com.pixodrome.pdk.component.EntitySpawner;
 	import com.pixodrome.pdk.component.constraint.XDistanceConstraint;
 	import com.pixodrome.pdk.component.display.d2.Transform2D;

@@ -1,4 +1,4 @@
-package com.pixodrome.theBat.entitys.fly {
+package com.pixodrome.theBat.entitys.flys {
 	import starling.errors.AbstractClassError;
 
 	import com.pixodrome.pdk.component.Trigger.DistanceTrigger;

@@ -1,4 +1,4 @@
-package com.pixodrome.theBat.entitys.fly {
+package com.pixodrome.theBat.entitys.flys {
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
 	import starling.display.Image;

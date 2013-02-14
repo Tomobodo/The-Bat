@@ -1,4 +1,4 @@
-package com.pixodrome.theBat.entitys.fly {
+package com.pixodrome.theBat.entitys.flys {
 	import com.pixodrome.pdk.component.GoToPoint;
 	import com.pixodrome.pdk.component.basicPhysic.Gravity;
 	import com.pixodrome.pdk.component.basicPhysic.Friction;

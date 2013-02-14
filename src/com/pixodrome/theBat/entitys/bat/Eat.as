@@ -1,11 +1,11 @@
 package com.pixodrome.theBat.entitys.bat {
-	import com.pixodrome.theBat.entitys.fly.FlyControl;
 	import com.pixodrome.pdk.Utils;
 	import com.pixodrome.pdk.component.Component;
 	import com.pixodrome.pdk.component.basicPhysic.Velocity;
 	import com.pixodrome.pdk.component.display.d2.Transform2D;
 	import com.pixodrome.pdk.core.Scene;
 	import com.pixodrome.pdk.entity.Entity;
+	import com.pixodrome.theBat.entitys.flys.FlyControl;
 
 	/**
 	 * @author Thomas
