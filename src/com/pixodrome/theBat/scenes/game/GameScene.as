@@ -1,14 +1,16 @@
-package com.pixodrome.theBat.scenes {
-	import com.pixodrome.theBat.entitys.stalagmytes.StalagmyteSpawner;
+package com.pixodrome.theBat.scenes.game {
 	import starling.display.Quad;
 	import starling.display.Sprite;
 
 	import com.pixodrome.pdk.core.Scene;
 	import com.pixodrome.pdk.display.StarlingRender;
+	import com.pixodrome.pdk.entity.Entity;
 	import com.pixodrome.theBat.entitys.Cam;
 	import com.pixodrome.theBat.entitys.bat.Bat;
 	import com.pixodrome.theBat.entitys.energieBar.EnergieBar;
 	import com.pixodrome.theBat.entitys.flys.FlySpawner;
+	import com.pixodrome.theBat.entitys.score.Score;
+	import com.pixodrome.theBat.entitys.stalagmytes.StalagmyteSpawner;
 
 	/**
 	 * @author Thomas
@@ -34,6 +36,12 @@ package com.pixodrome.theBat.scenes {
 			add(new FlySpawner());
 			
 			add(new StalagmyteSpawner());
+			
+			add(new Score());
+			
+			var gameControl:Entity = new Entity();
+			gameControl.add(new GameControl());
+			add(gameControl);
 		}
 	}
 }

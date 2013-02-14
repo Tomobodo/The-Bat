@@ -22,9 +22,7 @@ package com.pixodrome.theBat.entitys.bat {
 			transform.scaleY = 0.5;
 			add(transform);
 			
-			var velocity : Velocity = new Velocity();
-			velocity.velocityX = 150;
-			add(velocity);
+			add(new Velocity());
 			
 			add(new Gravity());
 			

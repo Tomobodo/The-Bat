@@ -1,5 +1,4 @@
 package com.pixodrome.theBat.entitys.stalagmytes {
-	import starling.events.Event;
 	import starling.display.DisplayObject;
 	import starling.display.Image;
 	import starling.display.Sprite;
@@ -11,7 +10,7 @@ package com.pixodrome.theBat.entitys.stalagmytes {
 	/**
 	 * @author Thomas
 	 */
-	public class StalagmyteView extends Sprite implements IRenderable {
+	public class StalagmyteView implements IRenderable {
 		private var mView : Sprite;
 
 		public function StalagmyteView() {

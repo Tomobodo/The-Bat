@@ -1,4 +1,5 @@
 package com.pixodrome.theBat.entitys.flys {
+	import com.pixodrome.theBat.entitys.score.ScoreControl;
 	import com.pixodrome.pdk.component.GoToPoint;
 	import com.pixodrome.pdk.component.basicPhysic.Gravity;
 	import com.pixodrome.pdk.component.basicPhysic.Friction;
@@ -24,6 +25,7 @@ package com.pixodrome.theBat.entitys.flys {
 		private var mDirectionTimer : Timer;
 		private var mDirectionChanger : Number;
 		private var mEaten : Boolean;
+		private var mBatVelocity : Velocity;
 		
 		public var dead : Boolean;
 
@@ -31,6 +33,11 @@ package com.pixodrome.theBat.entitys.flys {
 			mTransform = entity.getComponent(Transform2D);
 			mFlying = entity.getComponent(Flying);
 			mVelocity = entity.getComponent(Velocity);
+			
+			mBatVelocity = Scene.current.getTag("Bat").getComponent(Velocity);
+			var score : ScoreControl = Scene.current.getTag("Score").getComponent(ScoreControl);
+			mFlying.flyHorizontalStrength = score.score / 100;
+			//mVelocity.velocityX = mBatVelocity.velocityX;
 
 			mDirectionTimer = new Timer(Math.random() * 2500);
 			mDirectionTimer.addEventListener(TimerEvent.TIMER, onDirectionTimer);

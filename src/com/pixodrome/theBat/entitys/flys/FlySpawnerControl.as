@@ -20,7 +20,7 @@ package com.pixodrome.theBat.entitys.flys {
 
 		private function onTimer(event : TimerEvent) : void {
 			emit(EntitySpawner.MESSAGE_SPAWN, Fly);
-			mTimer.delay = Math.random()* 2500 + 2500;
+			mTimer.delay = Math.random()* 1000 + 1000;
 		}
 
 	}

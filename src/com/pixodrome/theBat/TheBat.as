@@ -2,7 +2,7 @@ package com.pixodrome.theBat {
 	import starling.core.Starling;
 
 	import com.pixodrome.pdk.core.Application;
-	import com.pixodrome.theBat.scenes.GameScene;
+	import com.pixodrome.theBat.scenes.game.GameScene;
 
 	import flash.events.MouseEvent;
 
