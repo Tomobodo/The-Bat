@@ -1,4 +1,8 @@
 package com.pixodrome.theBat.scenes.game {
+	import com.pixodrome.pdk.input.Inputs;
+	import starling.events.Touch;
+	import starling.events.TouchEvent;
+	import starling.events.TouchPhase;
 	import starling.display.Quad;
 	import starling.display.Sprite;
 
@@ -42,6 +46,16 @@ package com.pixodrome.theBat.scenes.game {
 			var gameControl:Entity = new Entity();
 			gameControl.add(new GameControl());
 			add(gameControl);
+			
+			CONFIG::Touch{
+				StarlingRender.scene.stage.addEventListener(TouchEvent.TOUCH, onTouch);
+			}
+		}
+
+		private function onTouch(event : TouchEvent) : void {
+			var touch : Touch = event.getTouch(StarlingRender.scene.stage, TouchPhase.BEGAN);
+			if(touch)
+				Inputs.mouseClicked.dispatch();
 		}
 	}
 }
