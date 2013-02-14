@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://texturepacker.com-->
-<!-- $TexturePacker:SmartUpdate:72043ba46e6146a1e26ae716f933f479$ -->
+<!-- $TexturePacker:SmartUpdate:81ce9f7be4ef50d43190a8ec1c8c7258$ -->
 <TextureAtlas imagePath="spriteSheet.png">
     <SubTexture name="batFly_1" x="2" y="2" width="250" height="150"/>
     <SubTexture name="batFly_2" x="254" y="2" width="250" height="150"/>
-    <SubTexture name="batFly_3" x="2" y="154" width="250" height="150"/>
-    <SubTexture name="flyEye_1" x="254" y="154" width="50" height="30"/>
-    <SubTexture name="flyEye_2" x="306" y="154" width="50" height="30"/>
-    <SubTexture name="flyEye_3" x="358" y="154" width="50" height="30"/>
-    <SubTexture name="flyFly_1" x="410" y="154" width="80" height="90"/>
-    <SubTexture name="flyFly_2" x="2" y="306" width="80" height="90"/>
-    <SubTexture name="flyFly_3" x="84" y="306" width="80" height="90"/>
-    <SubTexture name="head" x="166" y="306" width="80" height="84"/>
-    <SubTexture name="headScream" x="248" y="306" width="80" height="84"/>
-    <SubTexture name="spider" x="2" y="398" width="204" height="150"/>
-    <SubTexture name="stalagmyte_1" x="208" y="398" width="128" height="293"/>
-    <SubTexture name="stalagmyte_2" x="338" y="398" width="130" height="291"/>
+    <SubTexture name="batFly_3" x="506" y="2" width="250" height="150"/>
+    <SubTexture name="flyEye_1" x="758" y="2" width="50" height="30"/>
+    <SubTexture name="flyEye_2" x="810" y="2" width="50" height="30"/>
+    <SubTexture name="flyEye_3" x="862" y="2" width="50" height="30"/>
+    <SubTexture name="flyFly_1" x="914" y="2" width="80" height="90"/>
+    <SubTexture name="flyFly_2" x="2" y="154" width="80" height="90"/>
+    <SubTexture name="flyFly_3" x="84" y="154" width="80" height="90"/>
+    <SubTexture name="head" x="166" y="154" width="80" height="84"/>
+    <SubTexture name="headScream" x="248" y="154" width="80" height="84"/>
+    <SubTexture name="spider" x="330" y="154" width="204" height="150"/>
+    <SubTexture name="stalag_1" x="536" y="154" width="128" height="293"/>
+    <SubTexture name="stalag_2" x="666" y="154" width="130" height="291"/>
+    <SubTexture name="stalag_3" x="798" y="154" width="200" height="250"/>
+    <SubTexture name="stalag_4" x="2" y="449" width="200" height="250"/>
+    <SubTexture name="stalag_5" x="204" y="449" width="300" height="350"/>
+    <SubTexture name="stalag_6" x="506" y="449" width="300" height="350"/>
 </TextureAtlas>

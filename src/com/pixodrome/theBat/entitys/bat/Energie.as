@@ -21,7 +21,6 @@ package com.pixodrome.theBat.entitys.bat {
 			switch(message){
 				case MESSAGE_HEAL :
 					add(Number(params));
-					trace(Number(params));
 					break;
 				case MESSAGE_HURT :
 					remove(Number(params));
