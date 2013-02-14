@@ -47,7 +47,7 @@ package com.pixodrome.theBat.entitys.bat {
 
 					if (dist < radius && !flyControl.dead) {
 						emit(Eat.MESSAGE_EAT);
-						emit(Energie.MESSAGE_HEAL, 20);
+						emit(Energie.MESSAGE_HEAL, 10);
 						flys.sendMessage(Eat.MESSAGE_EATEN, mEatTransform, this);
 					}else if(dist < radiusOpen){
 						aFlysIsClose = true;

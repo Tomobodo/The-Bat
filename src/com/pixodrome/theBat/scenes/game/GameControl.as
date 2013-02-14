@@ -28,11 +28,11 @@ package com.pixodrome.theBat.scenes.game {
 		override public function onUpdate(deltaTime : Number) : void {
 			mBatVelocity.velocityX = mScore.score/25 + batBaseVelocity;
 			mStalagmyte.spawnMinInterval = mMinSpawnIntervalBase - mScore.score;
-			if(mStalagmyte.spawnMinInterval < 10)
-				mStalagmyte.spawnMinInterval = 10;
+			if(mStalagmyte.spawnMinInterval < 200)
+				mStalagmyte.spawnMinInterval = 200;
 			mStalagmyte.spawnMaxInterval = mMaxSpawnIntervalBase - mScore.score;
-			if(mStalagmyte.spawnMinInterval < 20)
-				mStalagmyte.spawnMinInterval = 20;
+			if(mStalagmyte.spawnMinInterval < 400)
+				mStalagmyte.spawnMinInterval = 400;
 		}
 	}
 }
