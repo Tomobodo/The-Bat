@@ -1,4 +1,5 @@
 package com.pixodrome.theBat.scenes.game {
+	import com.pixodrome.pdk.component.sound.BGMEmitter;
 	import com.pixodrome.pdk.input.Inputs;
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
@@ -19,7 +20,12 @@ package com.pixodrome.theBat.scenes.game {
 	/**
 	 * @author Thomas
 	 */
+	 
 	public class GameScene extends Scene {
+		
+		[Embed(source="../../../../../../media/sound/Game Sounds.mp3")]
+		private var GameBGM : Class;
+		
 		function GameScene() : void {
 			super();
 
@@ -44,7 +50,14 @@ package com.pixodrome.theBat.scenes.game {
 			add(new Score());
 			
 			var gameControl:Entity = new Entity();
+			
+			var bgm : BGMEmitter = new BGMEmitter();
+			bgm.sound = new GameBGM();
+			bgm.loop = int.MAX_VALUE;
+			
 			gameControl.add(new GameControl());
+			gameControl.add(bgm);
+			
 			add(gameControl);
 			
 			CONFIG::Touch{

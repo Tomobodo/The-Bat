@@ -1,4 +1,5 @@
 package com.pixodrome.pdk.component.display.d2 {
+	import flash.geom.Rectangle;
 	import starling.display.DisplayObject;
 	import starling.display.Sprite;
 
@@ -31,6 +32,10 @@ package com.pixodrome.pdk.component.display.d2 {
 		override public function onUpdate(deltaTime : Number) : void {
 			updateTransform();
 			view.onUpdate(deltaTime);
+		}
+		
+		public function getBounds() : Rectangle {
+			return this.view.getView().bounds;
 		}
 
 		private function updateTransform() : void {

@@ -41,6 +41,8 @@ package com.pixodrome.theBat.entitys.bat {
 			
 			add(new Energie());
 			
+			add(new HitStalagmyte());
+			
 			add(new YControl());
 			
 			var rendering : Rendering = new Rendering();

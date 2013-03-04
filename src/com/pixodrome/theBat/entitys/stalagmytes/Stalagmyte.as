@@ -8,12 +8,16 @@ package com.pixodrome.theBat.entitys.stalagmytes {
 	 * @author Thomas
 	 */
 	public class Stalagmyte extends Entity {
+		
+		public static const TAG_STALGMYTE : String = "Stalagmyte";
+		
 		public function Stalagmyte() {
 			super();
 			
-			tag = "Stalagmyte";
+			tag = TAG_STALGMYTE;
 			
-			add(new Transform2D());
+			var transform : Transform2D = new Transform2D();
+			add(transform);
 			
 			var rendering : Rendering = new Rendering();
 			rendering.view = new StalagmyteView();

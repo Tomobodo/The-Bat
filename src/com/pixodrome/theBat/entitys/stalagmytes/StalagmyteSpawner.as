@@ -14,7 +14,6 @@ package com.pixodrome.theBat.entitys.stalagmytes {
 			tag = "StalagmyteSpawner";
 			
 			var transform : Transform2D = new Transform2D();
-			transform.y = -300;
 			add(transform);
 			
 			var camPos : Transform2D = Scene.current.getTag("Camera").getComponent(Transform2D);

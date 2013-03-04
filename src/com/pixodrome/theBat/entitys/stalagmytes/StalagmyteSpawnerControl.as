@@ -18,7 +18,7 @@ package com.pixodrome.theBat.entitys.stalagmytes {
 		public var spawnMaxInterval : Number = 3000;
 			
 		override public function onCreate() : void {
-			mTimer = new Timer(1);
+			mTimer = new Timer(2000);
 			mTimer.addEventListener(TimerEvent.TIMER, onTimer);
 			mTimer.start();
 			
@@ -26,12 +26,12 @@ package com.pixodrome.theBat.entitys.stalagmytes {
 		}
 
 		private function onTimer(event : TimerEvent) : void {
+			var posy : Number = Math.random() * 100;
+			mTransform.y = posy;
 			emit(EntitySpawner.MESSAGE_SPAWN, Stalagmyte);
-			mTimer.delay = Math.random() * (spawnMaxInterval - spawnMinInterval) + spawnMinInterval;
-			if(mTransform.y < 0)
-				mTransform.y = 260 + Math.random() * eloignement;
-			else
-				mTransform.y = -260 - Math.random() * eloignement;
+			mTransform.y = -posy;
+			emit(EntitySpawner.MESSAGE_SPAWN, Stalagmyte);
+			//mTimer.delay = Math.random() * (spawnMaxInterval - spawnMinInterval) + spawnMinInterval;
 		}
 	}
 }

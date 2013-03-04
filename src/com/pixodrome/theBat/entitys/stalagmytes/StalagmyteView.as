@@ -18,8 +18,10 @@ package com.pixodrome.theBat.entitys.stalagmytes {
 
 			var idImg : uint = Math.random() * 5 + 1;
 			var img : Image = new Image(Assets.getAtlas().getTexture("stalag_" + idImg));
-			img.x = Math.random() * 75 - 150;
 			img.pivotX = img.width / 2;
+			img.pivotY = img.height;
+			img.scaleY = 1.5;
+			img.scaleX = 1;
 			mView.addChild(img);
 
 		}
