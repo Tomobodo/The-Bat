@@ -12,6 +12,8 @@ package com.pixodrome.pdk.core {
 		
 		public static var current : Scene ;
 		
+		public var application : Application;
+		
 		function Scene() {
 			current = this;
 			mEntitys = new EntityList();

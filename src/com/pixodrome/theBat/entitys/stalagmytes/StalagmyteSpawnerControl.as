@@ -5,33 +5,43 @@ package com.pixodrome.theBat.entitys.stalagmytes {
 
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
+
 	/**
 	 * @author Thomas
 	 */
-	public class StalagmyteSpawnerControl extends Component{
-		
+	public class StalagmyteSpawnerControl extends Component {
 		private var mTimer : Timer;
 		private var mTransform : Transform2D;
-		
-		public var eloignement : Number = 100;
-		public var spawnMinInterval : Number = 3000;
-		public var spawnMaxInterval : Number = 3000;
-			
+		private var mPosSpawn : int = 1;
+		private var mSpawnInterval : Number = 3000;
+		public var mEloignement : Number = 170;
+		public var difficulty : Number = 0;
+
 		override public function onCreate() : void {
-			mTimer = new Timer(2000);
+			mTimer = new Timer(mSpawnInterval);
 			mTimer.addEventListener(TimerEvent.TIMER, onTimer);
 			mTimer.start();
-			
+
 			mTransform = entity.getComponent(Transform2D);
 		}
 
 		private function onTimer(event : TimerEvent) : void {
-			var posy : Number = Math.random() * 100;
-			mTransform.y = posy;
+			var stalagMaxY : uint = difficulty / 3;
+			if (stalagMaxY > 160)
+				stalagMaxY = 160;
+
+			var posy : Number = mEloignement - Math.random() * stalagMaxY;
+
+			mTransform.y = posy * mPosSpawn;
 			emit(EntitySpawner.MESSAGE_SPAWN, Stalagmyte);
-			mTransform.y = -posy;
-			emit(EntitySpawner.MESSAGE_SPAWN, Stalagmyte);
-			//mTimer.delay = Math.random() * (spawnMaxInterval - spawnMinInterval) + spawnMinInterval;
+			
+			mPosSpawn *= -1;
+
+			mSpawnInterval -= 50;
+			mTimer.delay = mSpawnInterval;
+			if (mSpawnInterval < 200)
+				mSpawnInterval = 200;
+			trace(mSpawnInterval);
 		}
 	}
 }

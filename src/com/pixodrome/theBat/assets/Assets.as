@@ -22,6 +22,9 @@ package com.pixodrome.theBat.assets {
 		private static const SecondPlan : Class;
 		public static const SecondPlanTexture : Texture = Texture.fromBitmap(Bitmap(new SecondPlan));
 		
+		[Embed(source="../../../../../media/font/OogieBoogie.ttf", fontFamily="oogieBoogie", embedAsCFF="false")]
+		public static const myFont : Class;		
+		
 		private static var textureAtlas : TextureAtlas;
 
 		public static function getAtlas() : TextureAtlas {

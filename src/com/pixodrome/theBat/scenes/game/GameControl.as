@@ -1,9 +1,9 @@
 package com.pixodrome.theBat.scenes.game {
-	import com.pixodrome.theBat.entitys.stalagmytes.StalagmyteSpawnerControl;
 	import com.pixodrome.pdk.component.Component;
 	import com.pixodrome.pdk.component.basicPhysic.Velocity;
 	import com.pixodrome.pdk.core.Scene;
 	import com.pixodrome.theBat.entitys.score.ScoreControl;
+	import com.pixodrome.theBat.entitys.stalagmytes.StalagmyteSpawnerControl;
 	/**
 	 * @author Thomas
 	 */
@@ -14,6 +14,7 @@ package com.pixodrome.theBat.scenes.game {
 		private var mStalagmyte : StalagmyteSpawnerControl;
 		private var mMinSpawnIntervalBase : uint;
 		private var mMaxSpawnIntervalBase : int;
+		private var mDifficulty : Number = 0;
 		
 		public var batBaseVelocity : Number = 150;
 		
@@ -26,13 +27,9 @@ package com.pixodrome.theBat.scenes.game {
 		}
 		
 		override public function onUpdate(deltaTime : Number) : void {
-			mBatVelocity.velocityX = mScore.score/25 + batBaseVelocity;
-			mStalagmyte.spawnMinInterval = mMinSpawnIntervalBase - mScore.score;
-			if(mStalagmyte.spawnMinInterval < 200)
-				mStalagmyte.spawnMinInterval = 200;
-			mStalagmyte.spawnMaxInterval = mMaxSpawnIntervalBase - mScore.score;
-			if(mStalagmyte.spawnMinInterval < 400)
-				mStalagmyte.spawnMinInterval = 400;
+			mDifficulty = Math.pow(mScore.score, 0.7);
+			mBatVelocity.velocityX = batBaseVelocity + mDifficulty ;
+			mStalagmyte.difficulty = mDifficulty;
 		}
 	}
 }

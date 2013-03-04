@@ -13,7 +13,7 @@ package com.pixodrome.theBat.entitys.score {
 		private var mScore : ScoreControl;
 		
 		function ScoreView(){
-			mTextfield = new TextField(200, 50, "Score : ");
+			mTextfield = new TextField(200, 50, "Score : ", "oogieBoogie");
 			mTextfield.fontSize = 24;
 			mTextfield.hAlign = "right";
 			mTextfield.color = 0xffffff;

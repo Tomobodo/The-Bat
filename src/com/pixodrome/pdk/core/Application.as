@@ -61,6 +61,7 @@ package com.pixodrome.pdk.core {
 			if (mCurrentScene)
 				mCurrentScene.destroy();
 			mCurrentScene = scene;
+			mCurrentScene.application = this;
 		}
 	}
 }

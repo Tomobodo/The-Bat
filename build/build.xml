@@ -10,7 +10,7 @@
 			startswf="true" 
 			swflauncher="Adobe Flash Player" 
 			swflocation="bin/TheBat.swf"
-			compilerarguments="-define CONFIG::Touch,false"
+			compilerarguments="-define CONFIG::Touch,false -define CONFIG::Debug,true"
 		/>
 	</target>
 	<target name="Release">
@@ -22,7 +22,7 @@
 			startswf="true" 
 			swflauncher="Adobe Flash Player" 
 			swflocation="bin/TheBat.swf"
-			compilerarguments="-define CONFIG::Touch,false"
+			compilerarguments="-define CONFIG::Touch,false -define CONFIG::Debug,false"
 		/>
 	</target>
 </project>

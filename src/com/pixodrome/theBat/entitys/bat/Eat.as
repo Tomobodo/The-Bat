@@ -1,4 +1,6 @@
 package com.pixodrome.theBat.entitys.bat {
+	import com.pixodrome.theBat.entitys.score.ScoreControl;
+	import com.pixodrome.theBat.entitys.score.Score;
 	import com.pixodrome.pdk.Utils;
 	import com.pixodrome.pdk.component.Component;
 	import com.pixodrome.pdk.component.basicPhysic.Velocity;

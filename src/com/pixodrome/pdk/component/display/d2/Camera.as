@@ -1,5 +1,4 @@
 package com.pixodrome.pdk.component.display.d2 {
-	import starling.display.Quad;
 	import starling.display.Sprite;
 
 	import com.pixodrome.pdk.component.Component;
@@ -47,6 +46,12 @@ package com.pixodrome.pdk.component.display.d2 {
 			if(!mBackground)
 				mBackground = new Sprite();
 			mBackground.addChild(background);
+		}
+		
+		override public function destroy() : void {
+			super.destroy();
+			
+			mScene.parent.removeChild(mBackground);
 		}
 		
 	}

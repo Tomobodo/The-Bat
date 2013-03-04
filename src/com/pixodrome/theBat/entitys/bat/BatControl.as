@@ -19,6 +19,7 @@ package com.pixodrome.theBat.entitys.bat {
 					entity.remove(YControl);
 					entity.remove(Flying);
 					entity.remove(Eat);
+					entity.remove(MouseControl);
 					break;
 			}
 		}
