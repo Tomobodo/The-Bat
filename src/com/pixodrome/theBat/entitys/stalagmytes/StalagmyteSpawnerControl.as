@@ -26,7 +26,8 @@ package com.pixodrome.theBat.entitys.stalagmytes {
 		}
 
 		private function onTimer(event : TimerEvent) : void {
-			var stalagMaxY : uint = difficulty / 3;
+			
+			var stalagMaxY : uint = difficulty;
 			if (stalagMaxY > 160)
 				stalagMaxY = 160;
 
@@ -36,12 +37,13 @@ package com.pixodrome.theBat.entitys.stalagmytes {
 			emit(EntitySpawner.MESSAGE_SPAWN, Stalagmyte);
 			
 			mPosSpawn *= -1;
-
-			mSpawnInterval -= 50;
-			mTimer.delay = mSpawnInterval;
-			if (mSpawnInterval < 200)
-				mSpawnInterval = 200;
-			trace(mSpawnInterval);
+			
+			var level : uint = difficulty / 2;
+			
+			mTimer.delay = mSpawnInterval - level * 10;
+			
+			if (mTimer.delay < 100)
+				mTimer.delay = 100;
 		}
 	}
 }

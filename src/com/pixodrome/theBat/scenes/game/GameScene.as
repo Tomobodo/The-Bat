@@ -1,4 +1,5 @@
 package com.pixodrome.theBat.scenes.game {
+	import com.greensock.TweenLite;
 	import com.pixodrome.pdk.component.sound.BGMEmitter;
 	import com.pixodrome.pdk.input.Inputs;
 	import starling.events.Touch;
@@ -59,10 +60,15 @@ package com.pixodrome.theBat.scenes.game {
 			gameControl.add(bgm);
 			
 			add(gameControl);
+
+			bgm.soundChanel.soundTransform.volume = 0;
 			
 			CONFIG::Touch{
 				StarlingRender.scene.stage.addEventListener(TouchEvent.TOUCH, onTouch);
 			}
+			
+			TweenLite.to(StarlingRender.instance, 1, {alpha:1});
+			TweenLite.to(bgm.soundChanel, 1, {soundTransform:{volume:1, pan:0.5}});
 		}
 
 		private function onTouch(event : TouchEvent) : void {
@@ -70,5 +76,7 @@ package com.pixodrome.theBat.scenes.game {
 			if(touch)
 				Inputs.mouseClicked.dispatch();
 		}
+		
+		
 	}
 }

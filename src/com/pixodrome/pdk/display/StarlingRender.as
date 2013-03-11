@@ -8,8 +8,11 @@ package com.pixodrome.pdk.display {
 		
 		public static const gui : Sprite = new Sprite();
 		public static const scene : Sprite = new Sprite();
+		public static var instance : StarlingRender;
 		
 		public function StarlingRender() {
+			
+			instance = this;
 			
 			addChild(scene);
 			addChild(gui);

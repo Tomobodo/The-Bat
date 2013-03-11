@@ -10,15 +10,15 @@ package com.pixodrome.pdk.component.sound {
 		public var sound : Sound;
 		public var loop : int;
 		
-		private var mSoundChanel : SoundChannel;
+		public var soundChanel : SoundChannel;
 		
 		override public function onCreate() : void {
-			mSoundChanel = sound.play(0, loop);
+			soundChanel = sound.play(0, loop);
 		}
 		
 		override public function destroy() : void {
 			super.destroy();
-			mSoundChanel.stop();
+			soundChanel.stop();
 		}
 		
 	}
