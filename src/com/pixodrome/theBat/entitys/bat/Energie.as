@@ -10,7 +10,7 @@ package com.pixodrome.theBat.entitys.bat {
 		public var energie : Number;
 		
 		public static const MESSAGE_HURT:String = "hurt";
-		public static const MESSAGE_HEAL:String = "heal"
+		public static const MESSAGE_HEAL:String = "heal";
 		public static const MESSAGE_DEAD:String = "dead";
 		
 		override public function onCreate() : void {

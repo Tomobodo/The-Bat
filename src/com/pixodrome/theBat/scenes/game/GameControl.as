@@ -12,8 +12,6 @@ package com.pixodrome.theBat.scenes.game {
 		private var mBatVelocity : Velocity;
 		private var mScore : ScoreControl;
 		private var mStalagmyte : StalagmyteSpawnerControl;
-		private var mMinSpawnIntervalBase : uint;
-		private var mMaxSpawnIntervalBase : int;
 		private var mDifficulty : Number = 0;
 		
 		public var batBaseVelocity : Number = 150;
@@ -22,8 +20,6 @@ package com.pixodrome.theBat.scenes.game {
 			mBatVelocity = Scene.current.getTag("Bat").getComponent(Velocity);
 			mScore = Scene.current.getTag("Score").getComponent(ScoreControl);
 			mStalagmyte = Scene.current.getTag("StalagmyteSpawner").getComponent(StalagmyteSpawnerControl);
-			mMinSpawnIntervalBase = 3000;
-			mMaxSpawnIntervalBase = 5000;
 		}
 		
 		override public function onUpdate(deltaTime : Number) : void {

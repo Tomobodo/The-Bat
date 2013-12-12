@@ -1,4 +1,6 @@
 package com.pixodrome.theBat.scenes.game {
+	import com.pixodrome.theBat.entitys.score.ScoreControl;
+	import com.pixodrome.theBat.scenes.gameOver.GameOver;
 	import com.greensock.TweenLite;
 	import com.pixodrome.pdk.component.sound.BGMEmitter;
 	import com.pixodrome.pdk.input.Inputs;
@@ -26,6 +28,8 @@ package com.pixodrome.theBat.scenes.game {
 		
 		[Embed(source="../../../../../../media/sound/Game Sounds.mp3")]
 		private var GameBGM : Class;
+		private var bgm : BGMEmitter;
+		private var score : Score;
 		
 		function GameScene() : void {
 			super();
@@ -48,11 +52,12 @@ package com.pixodrome.theBat.scenes.game {
 			
 			add(new StalagmyteSpawner());
 			
-			add(new Score());
+			this.score = new Score();
+			add(score);
 			
 			var gameControl:Entity = new Entity();
 			
-			var bgm : BGMEmitter = new BGMEmitter();
+			bgm = new BGMEmitter();
 			bgm.sound = new GameBGM();
 			bgm.loop = int.MAX_VALUE;
 			
@@ -76,7 +81,18 @@ package com.pixodrome.theBat.scenes.game {
 			if(touch)
 				Inputs.mouseClicked.dispatch();
 		}
+
+		public function gameOver() : void {
+			TweenLite.to(StarlingRender.instance, 1, {alpha:0, onComplete:gotoGameOver});
+			TweenLite.to(bgm.soundChanel, 1, {soundTransform:{volume:0, pan:0.5}});
+		}
 		
-		
+		private function gotoGameOver():void{
+			this.bgm.soundChanel.stop();
+			var _score : uint = (this.score.getComponent(ScoreControl) as ScoreControl).score;
+			while(StarlingRender.gui.numChildren > 0)
+				StarlingRender.gui.removeChildAt(0);
+			application.gotoScene(new GameOver(_score));
+		}
 	}
 }

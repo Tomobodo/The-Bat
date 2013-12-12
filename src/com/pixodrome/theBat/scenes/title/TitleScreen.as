@@ -1,13 +1,11 @@
 package com.pixodrome.theBat.scenes.title {
-	import starling.core.Starling;
-	import flash.text.TextFormat;
-	import flash.text.TextFieldAutoSize;
 	import starling.display.Image;
 	import starling.display.Quad;
 	import starling.display.Sprite;
 	import starling.events.Touch;
 	import starling.events.TouchEvent;
 	import starling.events.TouchPhase;
+	import starling.text.TextField;
 	import starling.textures.Texture;
 
 	import com.greensock.TweenLite;
@@ -26,7 +24,6 @@ package com.pixodrome.theBat.scenes.title {
 
 	import flash.display.Bitmap;
 	import flash.media.SoundChannel;
-	import flash.text.TextField;
 	
 	TweenPlugin.activate([SoundTransformPlugin]);
 	
@@ -41,10 +38,11 @@ package com.pixodrome.theBat.scenes.title {
 		[Embed(source="../../../../../../media/graph/typoTitre.png")]
 		private var TypoTitre : Class;
 		private var bgm : BGMEmitter;
-		private var texto : TextField;
 		
 		function TitleScreen() : void{
 			super();
+			
+			TweenLite.to(StarlingRender.instance, 1, {alpha:1});
 			
 			var blackBars : Sprite = new Sprite();
 			StarlingRender.gui.addChild(blackBars);
@@ -87,27 +85,14 @@ package com.pixodrome.theBat.scenes.title {
 		}
 
 		private function initStartText() : void {
-			texto = new TextField();
 			
-			var format : TextFormat = new TextFormat();
-			
-			with(format){
-				color = 0xffffff;
-				size = 24;
-				font = "Arial";
-			}
-			
-			with(texto){
-				defaultTextFormat = format;
-				selectable = false;
-				text = "Click anywhere to start.";
-				autoSize = TextFieldAutoSize.LEFT;
-			}
+			var texto : TextField = new TextField(500, 100, "Tap anywhere to start.", "oogieBoogie", 24, 0xffffff);
+			texto.hAlign = "center";
 			
 			texto.x = (800 - texto.width) / 2;
 			texto.y = 380;
 			
-			Starling.current.nativeStage.addChild(texto);
+			StarlingRender.gui.addChild(texto);
 		}
 
 		private function onTouch(event : TouchEvent) : void {
@@ -118,15 +103,14 @@ package com.pixodrome.theBat.scenes.title {
 				TweenLite.to(StarlingRender.instance, 1, {alpha:0, onComplete:onTweenEnded});
 				var snd : SoundChannel = this.bgm.soundChanel;
 				TweenLite.to(snd, 1, {soundTransform:{volume:0, pan:0.5}});
-				TweenLite.to(texto, 1, {alpha:0});
 			}
 		}
 		
 		private function onTweenEnded():void {
 			while(StarlingRender.gui.numChildren > 0)
 					StarlingRender.gui.removeChildAt(0);
+			this.bgm.soundChanel.stop();
 			application.gotoScene(new GameScene());
-			Starling.current.nativeStage.removeChild(texto);
 		}
 		
 	}

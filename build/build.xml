@@ -13,6 +13,18 @@
 			compilerarguments="-define CONFIG::Touch,false -define CONFIG::Debug,true"
 		/>
 	</target>
+	<target name="Kongregate">
+			<fdt.loadProjectProperties projectname="The Bat" />
+			<fdt.launch.application projectname="${FDTProject}" 
+				mainclass="${FDTProjectPath}/src/com/pixodrome/theBat/Main.as" 
+				target="${FDTProjectPath}/bin/TheBat.swf" 
+				debug="true" 
+				startswf="true" 
+				swflauncher="Adobe Flash Player" 
+				swflocation="bin/TheBat.swf"
+				compilerarguments="-define CONFIG::Touch,false -define CONFIG::Debug,false, -define CONFIG::Kongregate,true"
+			/>
+		</target>
 	<target name="Release">
 		<fdt.loadProjectProperties projectname="The Bat" />
 		<fdt.launch.application projectname="${FDTProject}" 
